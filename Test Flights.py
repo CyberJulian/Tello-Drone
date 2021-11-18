@@ -43,24 +43,33 @@ recvThread.start()
 
 # CREATE FUNCTIONS HERE....
 
+# Square
+def square():
+    sendmsg("up 75")
+    for i in range(4):
+        sendmsg("forward 100")
+        sendmsg("ccw 90")
 
-print("\nFirst & Last Names")
-print("Program Name: ")
-print("Date: ")
+
+print("\nWilliam Julian")
+print("Project Name: Test Flight ")
+import datetime
+
+now = datetime.datetime.now()
+print("Date: "+now.strftime("%m-%d-%y %H:%M"))
 print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 ready = input('\nAre you ready to take flight: ')
 
 
 try:
-    if ready.lower() == 'yes':
+    if ready.lower() == 'yep':
         print("\nStarting Drone!\n")
 
         sendmsg('command', 0)
         sendmsg('takeoff')
 
-        # Review the (SDK) Software Development Kit resource for Drone Commands
-        # Delete these comments before writing your program
+        square()
 
         sendmsg('land')
 
