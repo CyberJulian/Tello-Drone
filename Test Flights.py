@@ -51,6 +51,14 @@ def square():
         sendmsg("ccw 90")
 
 
+# Triangle
+def triangle():
+    sendmsg("up 75")
+    for i in range(3):
+        sendmsg("forward 100",3)
+        sendmsg("ccw 120",3)
+
+
 print("\nWilliam Julian")
 print("Project Name: Test Flight ")
 import datetime
@@ -69,14 +77,14 @@ try:
         sendmsg('command', 0)
         sendmsg('takeoff')
 
-        square()
+        triangle()
 
         sendmsg('land')
 
-        print('\nGreat Flight!!!')
+        print('\nFLIGHT SUCCESSFUL!! :)')
 
     else:
-        print('\nMake sure you check WIFI, surroundings, co-pilot is ready, re-run program\n')
+        print('\n****ERROR****\n')
 except KeyboardInterrupt:
     sendmsg('emergency')
 
