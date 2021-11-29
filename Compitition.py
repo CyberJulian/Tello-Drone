@@ -43,10 +43,24 @@ recvThread.start()
 
 # CREATE FUNCTIONS HERE....
 
+def firstHoop():
+    
+"""
+#def secondHoop():
 
-print("\nFirst & Last Names")
-print("Program Name: ")
-print("Date: ")
+
+#def thirdHoop():
+
+
+#def fourthHoop():
+"""
+
+print("\nTeam: Harter & Julian")
+print("Program Name: Hoop Competition")
+import datetime
+
+now = datetime.datetime.now()
+print("Date: "+now.strftime("%m-%d-%y %H:%M"))
 print("\n****CHECK YOUR TELLO WIFI ADDRESS****")
 print("\n****CHECK SURROUNDING AREA BEFORE FLIGHT****")
 ready = input('\nAre you ready to take flight: ')
