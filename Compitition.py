@@ -7,7 +7,7 @@ import threading, socket, sys, time, subprocess
 
 # GLOBAL VARIABLES DECLARED HERE....
 host = ''
-port = 9000
+port = 8889
 locaddr = (host,port)
 tello_address = ('192.168.10.1', 8889) # Get the Tello drone's address
 
@@ -44,17 +44,19 @@ recvThread.start()
 # CREATE FUNCTIONS HERE....
 
 def firstHoop():
-    sendmsg('up 92', 7)
+    sendmsg('up 90', 7)
+    sendmsg('forward 200')
+
+def secondHoop():
+    sendmsg('forward 165')
+
+def thirdHoop():
+    sendmsg('ccw 90')
     sendmsg('forward 190')
-"""
-#def secondHoop():
-
-
-#def thirdHoop():
-
+    sendmsg('ccw 90')
+    sendmsg('forward 175')
 
 #def fourthHoop():
-"""
 
 print("\nTeam: Harter & Julian")
 print("Program Name: Hoop Competition")
@@ -79,6 +81,9 @@ try:
 
 
         firstHoop()
+        time.sleep(1.5)
+        secondHoop()
+        #thirdHoop()
 
         sendmsg('land')
 
