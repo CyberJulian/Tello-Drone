@@ -8,16 +8,13 @@ import threading, socket, sys, time, subprocess
 # GLOBAL VARIABLES DECLARED HERE....
 host = ''
 port = 8889
-locaddr = (host,port)
+locaddr = (host, port)
 tello_address = ('192.168.10.1', 8889) # Get the Tello drone's address
-
-
 
 # Creates a UDP socketd
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 sock.bind(locaddr)
-
 
 def recv():
     count = 0
@@ -44,17 +41,15 @@ recvThread.start()
 # CREATE FUNCTIONS HERE....
 
 def firstHoop():
-    sendmsg('up 90', 7)
-    sendmsg('forward 200')
+    sendmsg('up 65')
+    sendmsg('forward 185')
 
 def secondHoop():
-    sendmsg('forward 165')
+    sendmsg('go 175 0 35 65', 8)
 
 def thirdHoop():
-    sendmsg('ccw 90')
-    sendmsg('forward 190')
-    sendmsg('ccw 90')
-    sendmsg('forward 175')
+    sendmsg('curve 100 100 0 30 250 0 60', 3)
+    sendmsg('ccw 180')
 
 #def fourthHoop():
 
@@ -74,14 +69,13 @@ try:
         print("\nStarting Drone!\n")
 
         sendmsg('command', 0)
-        sendmsg('takeoff')
+        sendmsg('takeoff', 8)
 
         # Review the (SDK) Software Development Kit resource for Drone Commands
         # Delete these comments before writing your program
 
 
         firstHoop()
-        time.sleep(1.5)
         secondHoop()
         #thirdHoop()
 
